@@ -52,14 +52,6 @@ This project is **in heavy development** and does not yet have a live deployment
      node server.js
      ```
 
-## Features (planned & WIP)
-
-* Discord login with OAuth2 (to check shared servers + permissions)
-* Analytics dashboard pulling ticket data from MySQL
-* Ticket filtering and search
-* Leaderboards for moderator and server activity
-* Export options (CSV, JSON)
-
 ## Repository structure
 
 ```
@@ -68,6 +60,14 @@ This project is **in heavy development** and does not yet have a live deployment
 /backend/src/data     -> SQL schema
 /client/assets        -> Static resources (icons, logos, etc.)
 ```
+
+## Features (planned & WIP)
+
+* Discord login with OAuth2 (to check shared servers + permissions)
+* Analytics dashboard pulling ticket data from MySQL
+* Ticket filtering and search
+* Leaderboards for moderator and server activity
+* Export options (CSV, JSON)
 
 ## Contributing
 
