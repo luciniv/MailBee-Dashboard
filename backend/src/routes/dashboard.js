@@ -1,12 +1,13 @@
 import { Router } from "express";
-import dbPool from "../data/database.js";
-import redis from "../data/cache.js";
+import dbPool from "../database.js";
+import redis from "../cache.js";
 import {  kpiMetrics, satisfactionMetrics, typeVolumeMetrics, totalVolumeMetrics } 
-from "../data/queries/database.sql.js";
+from "../data/database.sql.js";
 
 const router = Router();
 
 router.get("/", async (req, res) => {
+  console.log("Received dashboard request with query:", req.query);
   try {
     const { server, start, end, interval} = req.query;
 

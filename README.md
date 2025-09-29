@@ -1,73 +1,79 @@
-# React + TypeScript + Vite
+# MailBee Dashboard (WIP)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the **MailBee Dashboard**, a web interface for the [MailBee Discord bot](https://github.com/luciniv/MailBee).
+The dashboard is built with **React + Vite** on the frontend and **Express.js + MySQL** on the backend, with caching by **Valkey**.
 
-Currently, two official plugins are available:
+Its main purpose is to provide server admins with analytics and management tools for ticketing data created through the bot.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Status
 
-## React Compiler
+This project is **in heavy development** and does not yet have a live deployment. Expect frequent changes and breaking updates.
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
 
-## Expanding the ESLint configuration
+## Tech stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontend:** React.js + Vite
+- **Backend:** Node.js with Express.js
+- **Database:** MySQL 8
+- **Cache:** Valkey
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Development setup
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/luciniv/MailBee-Dashboard.git
+   cd MailBee-Dashboard
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Configure environment variables:
+   Create a `.env` file in /backend/src with your credentials:
+   ```
+   DB_HOST=
+   DB_USER=
+   DB_PASSWORD=
+   DB_DATABASE=
+
+   REDIS_URL=
+   ```
+
+4. Run the development servers:
+
+   * Frontend:
+     ```bash
+     npm run dev
+     ```
+   * Backend:
+     ```bash
+     node server.js
+     ```
+
+## Features (planned & WIP)
+
+* Discord login with OAuth2 (to check shared servers + permissions)
+* Analytics dashboard pulling ticket data from MySQL
+* Ticket filtering and search
+* Leaderboards for moderator and server activity
+* Export options (CSV, JSON)
+
+## Repository structure
+
+```
+/client               -> React + Vite frontend
+/backend/src          -> Express.js backend
+/backend/src/data     -> SQL schema
+/client/assets        -> Static resources (icons, logos, etc.)
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Contributing
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+This project is currently maintained as part of the **MailBee bot ecosystem**.
+Contributions, suggestions, and bug reports are currently unavailable until the system reaches further progress.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Contact
+
+For questions, reach out via **Discord** (`luciniv`) or **email** (`hello@luciniv.com`)
